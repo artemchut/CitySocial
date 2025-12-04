@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CitySocial.MainPage">
+
+    <Grid RowDefinitions=".87*, .13*" Padding="0,12">
+        <!--ALL EVENTS-->
+        <CollectionView Grid.Row="0"
+                        ItemsSource="{Binding events}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                Span="2"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="Gray"
+                        StrokeThickness="1"
+                        StrokeShape="12"
+                        Padding="12"
+                        Margin="8">
+                        <Grid RowDefinitions="Auto, Auto, 28" ColumnDefinitions="*">
+                            <Image Source="{Binding imageSource}"
+                                Aspect="AspectFit"
+                                HeightRequest="120"
+                                Grid.Row="0"
+                                Margin="0,0,0,8"/>
+                            <Label Text="{Binding mainText}"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                Grid.Row="1"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                Margin="0,0,0,6"/>
+                            <Border BackgroundColor="#59BDDEFF"
+                                Grid.Row="2"
+                                StrokeThickness="1"
+                                StrokeShape="8"
+                                WidthRequest="120">
+                                <Label Text="Read more"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    FontSize="16"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- TOOLBAR -->
+        <Grid Grid.Row="1"
+            BackgroundColor="#FFF4F6F9"
+            ColumnDefinitions="0.333*,0.334*,0.333*">
+            
+            <Image Source="home.png"
+                   Grid.Column="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HeightRequest="48"/>
+
+            <Image Source="add.png"
+                   Grid.Column="1"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HeightRequest="76"
+                   TranslationY="-32">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="addEvent"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image Source="profile.png"
+                   Grid.Column="2"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HeightRequest="48"/>
+        </Grid>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CitySocial.AddEvent">
+
+    <Grid RowDefinitions=".87*, .13*" BackgroundColor="#FFF3F3F3" Padding="20">
+        <!--EVERYTHING-->
+        <Grid Grid.Row="0" RowDefinitions="Auto, *">
+            <!--Upload photos-->
+            <Border HeightRequest="120"
+                    HorizontalOptions="Fill"
+                    BackgroundColor="#FFF1F1F1">
+                <Border BackgroundColor="#FF9BDDFC"
+                    WidthRequest="172"
+                    HeightRequest="64"
+                    StrokeShape="12">
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Image Source="add.png" WidthRequest="40" VerticalOptions="Center"/>
+                        <Label Text="Upload photos" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </Border>
+            </Border>
+
+            <!--Input section-->
+            <Grid Grid.Row="1"
+                  RowDefinitions="Auto, Auto, *"
+                  Padding="0,48,0,0">
+
+                <!--Title-->
+                <Border Padding="4,0"
+                        Grid.Row="0"
+                        BackgroundColor="#FFF1F1F1">
+                    <Entry Placeholder="Title"
+                           MaxLength="20"
+                           Margin="0,8,0,0"/>
+                </Border>
+
+                <!--Location-->
+                <Border Padding="4,0"
+                        Margin="0,12"
+                        Grid.Row="1"
+                        BackgroundColor="#FFF1F1F1">
+                    <Entry Placeholder="Location"
+                           MaxLength="20"
+                           Margin="0,8,0,0"/>
+                </Border>
+
+                <!--Description-->
+                <Border Padding="4"
+                        Grid.Row="2"
+                        BackgroundColor="#FFF1F1F1">
+                    <Editor Placeholder="Description"
+                            VerticalOptions="FillAndExpand"/>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!--TOOLBAR-->
+        <Grid Grid.Row="1"
+              BackgroundColor="#FFF4F6F9"
+              ColumnDefinitions="0.333*,0.334*,0.333*">
+
+            <Image Source="home.png"
+                   Grid.Column="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HeightRequest="48">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="homePage"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image Source="add.png"
+                   Grid.Column="1"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HeightRequest="76"
+                   TranslationY="-32" />
+
+            <Image Source="profile.png"
+                   Grid.Column="2"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HeightRequest="48" />
+
+        </Grid>
+    </Grid>
+</ContentPage>
