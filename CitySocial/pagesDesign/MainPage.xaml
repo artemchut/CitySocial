@@ -57,14 +57,14 @@
                    Grid.Column="0"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
-                   HeightRequest="48"/>
+                   HeightRequest="60"
+                   TranslationY="-36"/>
 
             <Image Source="add.png"
                    Grid.Column="1"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
-                   HeightRequest="76"
-                   TranslationY="-32">
+                   HeightRequest="68">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="addEvent"/>
                 </Image.GestureRecognizers>

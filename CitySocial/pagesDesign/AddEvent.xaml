@@ -1,61 +1,93 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?> 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CitySocial.AddEvent">
 
     <Grid RowDefinitions=".87*, .13*" BackgroundColor="#FFF3F3F3" Padding="20">
-        <!--EVERYTHING-->
+        <!-- EVERYTHING -->
         <Grid Grid.Row="0" RowDefinitions="Auto, *">
-            <!--Upload photos-->
+            <!-- Upload photos -->
             <Border HeightRequest="120"
                     HorizontalOptions="Fill"
-                    BackgroundColor="#FFF1F1F1">
+                    BackgroundColor="#FFF1F1F1"
+                    StrokeShape="6"
+                    StrokeDashArray="10,10"
+                    x:Name="UploadContainer">
+
                 <Border BackgroundColor="#FF9BDDFC"
-                    WidthRequest="172"
-                    HeightRequest="64"
-                    StrokeShape="12">
+                        WidthRequest="172"
+                        HeightRequest="64"
+                        StrokeShape="12">
                     <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
                         <Image Source="add.png" WidthRequest="40" VerticalOptions="Center"/>
                         <Label Text="Upload photos" VerticalOptions="Center"/>
                     </HorizontalStackLayout>
                 </Border>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="UploadPhoto"/>
+                </Border.GestureRecognizers>
             </Border>
 
-            <!--Input section-->
+            <!-- Input section -->
             <Grid Grid.Row="1"
                   RowDefinitions="Auto, Auto, *"
-                  Padding="0,48,0,0">
-
-                <!--Title-->
+                  Padding="0,28,0,0">
+                <!-- Title -->
                 <Border Padding="4,0"
                         Grid.Row="0"
-                        BackgroundColor="#FFF1F1F1">
-                    <Entry Placeholder="Title"
-                           MaxLength="20"
-                           Margin="0,8,0,0"/>
+                        BackgroundColor="#FFF1F1F1"
+                        StrokeShape="4">
+                    <VerticalStackLayout>
+                        <Label Text="Title"
+                               TextColor="#CBCBCB"
+                               TranslationY="32"
+                               TranslationX="8"
+                               FontSize="16"
+                               x:Name="titleLabel"/>
+                        <Entry MaxLength="20"
+                               HorizontalOptions="Fill"
+                               FontSize="16"
+                               x:Name="titleEntry"
+                               TextChanged="TitleEntry"/>
+                    </VerticalStackLayout>
                 </Border>
 
-                <!--Location-->
+                <!-- Location -->
                 <Border Padding="4,0"
-                        Margin="0,12"
                         Grid.Row="1"
-                        BackgroundColor="#FFF1F1F1">
-                    <Entry Placeholder="Location"
-                           MaxLength="20"
-                           Margin="0,8,0,0"/>
+                        BackgroundColor="#FFF1F1F1"
+                        StrokeShape="4"
+                        Margin="0,8">
+                    <VerticalStackLayout>
+                        <Label Text="Location"
+                               TextColor="#CBCBCB"
+                               TranslationY="32"
+                               TranslationX="8"
+                               FontSize="16"
+                               x:Name="locationLabel"/>
+                        <Entry MaxLength="20"
+                               HorizontalOptions="Fill"
+                               FontSize="16"
+                               x:Name="locationEntry"
+                               TextChanged="LocationEntry"/>
+                    </VerticalStackLayout>
                 </Border>
 
-                <!--Description-->
+                <!-- Description -->
                 <Border Padding="4"
                         Grid.Row="2"
-                        BackgroundColor="#FFF1F1F1">
+                        BackgroundColor="#FFF1F1F1"
+                        StrokeShape="4">
                     <Editor Placeholder="Description"
-                            VerticalOptions="FillAndExpand"/>
+                            VerticalOptions="FillAndExpand"
+                            FontSize="16"
+                            x:Name="descriptionEntry"/>
                 </Border>
+
             </Grid>
         </Grid>
 
-        <!--TOOLBAR-->
+        <!-- TOOLBAR -->
         <Grid Grid.Row="1"
               BackgroundColor="#FFF4F6F9"
               ColumnDefinitions="0.333*,0.334*,0.333*">
@@ -74,8 +106,8 @@
                    Grid.Column="1"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
-                   HeightRequest="76"
-                   TranslationY="-32" />
+                   HeightRequest="72"
+                   TranslationY="-28" />
 
             <Image Source="profile.png"
                    Grid.Column="2"
